@@ -1,0 +1,20 @@
+git branch 
+/*Проверка на какой ветке сейчас находишься*/
+
+git checkout someBranch /*перейди на одну из имеющихся веток - в данном примере это someBranch*/
+
+git checkout -b newBranch
+/*Создание новой ветки с текущего места*/
+
+git checkout -b newBranch d3bdd91 
+/*Создание новой ветки на выбранной хэш-метке одного из  commit (в этом примере )*/
+
+git merge mergeableBranch -m "Сообщение, о слиянии веток и сообшение commit" /*сливаются ветки - текущая на которой находишься производя команду и ветка с которой сливается текущая ветка, в данном примере это mergeableBranch*/
+
+git merge --allow-unrelated-histories mergeableBranch 
+/*Слияние веток у которых разная история, когда при обычном слиянии вдаёт сообщение fatal: refusing to merge unrelated histories
+Аналогичная ситуация может возникнуть при притягивании новых изменений вызывая команду git pull origin master,  вэтом случае необходимо вызвать команду git pull origin master --allow-unrelated-histories
+*/
+
+git merge --allow-unrelated-histories branch_1 brach_2
+ /*Слияние веток branch_1 и brach_2 у которых разная история  */
