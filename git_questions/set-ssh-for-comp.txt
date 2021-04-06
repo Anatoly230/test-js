@@ -53,13 +53,13 @@ ssh -T -i ~/.ssh/id_rsa git@github.com
 
 /*узнать установился ли правильно, и есть ли вообще связь через ssh  ключ
 должно выйти такой сообщение
-Hi yourlogin! You've successfully authenticated, but GitHub does not provide shell access.
+Hi <yourlogin>! You've successfully authenticated, but GitHub does not provide shell access.
 */
 
 git remote -v 
 
 /*проверка того, что можно делать с удалённым репозиторием
 должно выйти сообщение : 
-origin  https://github.com/Anatoly230/arch.git (fetch) получать
-origin  https://github.com/Anatoly230/arch.git (push) отправлять
+origin  https://github.com/Your_login/your-project.git (fetch) получать
+origin  https://github.com/Your_login/your-project.git (push) отправлять
 */
