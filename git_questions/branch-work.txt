@@ -9,7 +9,10 @@ git checkout -b newBranch
 git checkout -b newBranch d3bdd91 
 /*Создание новой ветки на выбранной хэш-метке одного из  commit (в этом примере )*/
 
-git merge mergeableBranch -m "Сообщение, о слиянии веток и сообшение commit" /*сливаются ветки - текущая на которой находишься производя команду и ветка с которой сливается текущая ветка, в данном примере это mergeableBranch*/
+git merge mergeableBranch 
+git merge mergeableBranch -m "Сообщение, о слиянии веток и сообшение commit" 
+/*сливаются ветки - текущая на которой находишься производя команду и ветка с которой сливается текущая ветка, в данном примере это mergeableBranch
+-m   для аненсения информации о слиянии для дополнения*/
 
 git merge --allow-unrelated-histories mergeableBranch 
 /*Слияние веток у которых разная история, когда при обычном слиянии вдаёт сообщение fatal: refusing to merge unrelated histories
