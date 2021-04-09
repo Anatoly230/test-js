@@ -7,8 +7,8 @@ https://smartiqa.ru/courses/git/lesson-2
 https://github.com/ivan1kazantsev/dev-helper/tree/master/cmdline/git
 
 
-
-
+git clone git@github.com:myLoginName/myProject.git myFolder
+ 
 git status
 /*были ли изменения*/
 

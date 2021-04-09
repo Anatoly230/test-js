@@ -45,7 +45,7 @@ git@github.com:otherLoginName/otherProject.git  -   копируется из cl
 
 git checkout master
 
-и забираю изменения в репозитории источнике (чудой репозиторий)
+и забираю изменения в репозитории источнике (чужой репозиторий)
 
 git pull otherLoginName master
 
