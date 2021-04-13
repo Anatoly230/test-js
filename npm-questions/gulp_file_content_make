@@ -1,0 +1,62 @@
+первым делом удаляю тестовое содержимое файла gulpfile.js
+
+далее пишу переменные и пути к файлам и папкам
+
+но для начала, устанавливаем специальные плагины
+
+устанавливаню плагин browser-sync для работу с  gulp  (он обновляет страницу после каждой обработки)
+npm i browser-sync --save-dev
+
+если после запуска команды возникает ошибка
+Error: Cannot find module 'browser-sync'
+то лечится она такой переустановкой 
+npm i browser-sync --save
+далее
+gulp
+и всё должно зарабоатать
+
+
+устанавливаю плагин file-include (соединяет несколько файлов в один, очень полезная штука. 
+Всю информацтю как пользоваться можно посмотреть на сайте    https://www.npmjs.com/package/gulp-file-include   )
+пишу команду 
+
+npm i gulp-file-include --save-dev
+
+
+устанавливаю плагин del  (для удаления папки в которую выгружаются изменения)
+пишу команду 
+
+npm i del --save-dev
+
+
+устанавливаю плагин gulp-sass  (для переформатирования из препроцессора less, в читамый браузером *css)
+ npm i gulp-sass --save-dev
+
+
+(если я буду пользоваться препроцессором less  то набираю команду npm i gulp-less --save-dev)
+
+
+устанавливаю очень полезный плагин autoprefixer
+
+npm i autoprefixer --save-dev
+
+
+
+ещё плагин который группирует все медиазапросы и ставит их в конец файла
+
+npm install --save-dev gulp-group-css-media-queries
+
+
+далее плагин для сжатия css
+
+npm i --save-dev gulp-clean-css 
+
+плагин rename  для создания копии насжатой версии css, который формируется при помощи плагина gulp-clean-css 
+npm i --save-dev gulp-rename 
+
+44:57 видео
+
+https://www.youtube.com/watch?v=stFOy0Noahg&t=206s
+
+
+
