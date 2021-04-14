@@ -1,12 +1,30 @@
 ls
+/*показать список файлов в одну строчку*/
+
 ls -1
+/*показать список файлов в столбик*/
+
 ls -1 -a
-pwd
+pwd 
+/*показать полный путь нахождения в терминале*/
 
 cd directory
-touch file_name
-open  file_name
-rm file_name
+/*смена директории нахождения*/
 
+touch file_name
+/*создание файла*/
+
+touch directory/{css/main.css,js/main.js,index.html}
+/*создание сразу нескольких фалов в указанной директории*/
+
+open  file_name
+
+
+rm file_name    
+/*удаление файла*/
+
+rm -R directory_name  
+/*удаление папки с файлами внутри неё*/
 
 copy copyDirection copyDestinationdirection
+/*копирование файлов*/
