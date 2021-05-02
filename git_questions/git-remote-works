@@ -27,3 +27,12 @@ git pull --rebase origin master
 git push origin master
 /*отправлюя все изменения произошедшие на локальном репозитории*/
 
+git remote rename oldName newName 
+/*переименование  удалённого подключения - oldName старое назание,  newName новое название*/
+
+git remote rm origin 
+/*удаление удалённого подключения - в этом примере origin  это название удалённого подключения*/
+
+git remote set-url origin https://github.com/Anatoly230/newRepositoryName.git 
+/*переименование репозитория - после того как поменял название на github,
+также необходимо перепривязать url, так как url удалённого подключения изменился*/
