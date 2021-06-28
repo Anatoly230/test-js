@@ -1,0 +1,96 @@
+body {
+    background-color: azure;
+}
+
+.parent-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: flex-end; */
+    width: 90%;
+    max-width: 1200px;
+    /*ориентироваться на это значение*/
+    margin: 0 auto;
+    background-color: #ddd;
+}
+
+.parent-block__heading {
+    width: 91.66666666666667%;
+    padding: 1.818181818181818%;
+    color: red;
+    background-color: yellowgreen;
+}
+
+.parent-block__text {
+    background-color: bisque;
+}
+
+.parent-block__list {
+    display: flex;
+    margin: 0;
+    list-style: none;
+    background-color: burlywood;
+    color: white;
+    transition-delay: 50ms;
+    transition-duration: 2500ms;
+}
+
+.parent-block__list-item {
+    background-color: red;
+}
+
+.btn {
+    position: relative;
+    display: flex;
+    align-content: space-between;
+    flex-wrap: wrap;
+    width: 20px;
+    height: 18px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    cursor: pointer;
+    background-color: rgba(255, 0, 0, 0);
+    border: none;
+    padding: 0;
+}
+
+.btn-rotate {
+    transform: rotate(-180deg);
+    transition-delay: 200ms;
+    transition-duration: 1000ms;
+}
+
+.btn-item {
+    flex-basis: 20px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    height: 2px;
+    background-color: white;
+    border-radius: 1px;
+    margin: 0;
+
+    transition-delay: 50ms;
+    transition-duration: 500ms;
+}
+
+.btn:hover {
+    opacity: 0.85;
+}
+
+.btn-x-tranform:first-of-type {
+    transform-origin: center;
+    transform: translateY(8px) rotate(45deg);
+}
+
+.btn-x-tranform:nth-of-type(2) {
+    flex-basis: 0px;
+}
+
+.btn-x-tranform:last-of-type {
+    transform-origin: center;
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+.hide-btn-text {
+    display: none;
+}
