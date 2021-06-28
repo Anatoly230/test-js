@@ -1,6 +1,11 @@
 let btn = document.querySelector('.btn');
 let btnBrgr = document.querySelectorAll('.btn-item');
 let blockList = document.querySelector('.parent-block__list');
+let blockListItems = blockList.children;
+
+let getCountListItem = () => {
+    console.log(blockListItems)
+}
 
 let addNewItem = (tagName, className, text, parentBlock) => {
     let element = document.createElement(tagName);
@@ -11,11 +16,18 @@ let addNewItem = (tagName, className, text, parentBlock) => {
 }
 
 btn.addEventListener('click', (evt) => {
-    btnBrgr.forEach(element => {
-        element.classList.toggle('btn-x-tranform');
-    });
+    if (evt.target.ariaLabel === `openCloseMenu` || evt.target.className == `btn-item`) {
+        btnBrgr.forEach(element => {
+            element.classList.toggle('btn-x-tranform');
+        });
+        btn.classList.toggle(`btn-rotate`)
+        addNewItem(`li`, `parent-block__list-item`, `Я ${blockListItems.length}-й элемент списка`, blockList);/*добавляю новый элемент */
+    }
 })
-btn.addEventListener('click', (evt) => {
-    btn.classList.toggle(`btn-rotate`)
-    addNewItem(`li`, `parent-block__list-item`, `Привет, я новый элемент списка`, blockList);/*добавляю новый элемент */
+
+blockList.addEventListener(`click`, (evt) => {
+    if (evt.target.className == `parent-block__list-item`) {
+        evt.target.remove()
+    }
 })
+
