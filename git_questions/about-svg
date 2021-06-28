@@ -37,3 +37,30 @@ background-image:  url("data:image/svg+xml;utf8,<svg>....</svg>")
   transform-origin: center center 0;  /*изменение центра вращения*/
   transform: rotate(-76deg); /*нулевая точка для этого метода - круг заполняется правильно, по часовой стрелке*/
 }
+
+ или так - всё зависит от рзамеров круга и его обводки
+
+        <svg width="60" height="60">
+            <circle class="shape-stroke" r="28" cx="50%" cy="50%">
+
+            </circle>
+        </svg>
+
+.shape-stroke {
+    fill: none;
+    stroke: blue;
+    /*цвет обводки*/
+    stroke-width: 4;
+    fill: orange;
+    /*толщина обводки*/
+    stroke-dasharray: 135 45;
+    // stroke-dasharray: 288 72;
+    /*1 процент кратный 36 (360 это целый круг) начение слева заполняющее, значение справа незаполеннеое место*/
+    stroke-linecap: round;
+    /*кончики отсечённых линий закруглённые*/
+    transform-origin: center center 0;
+    /*изменение центра вращения*/
+    transform: rotate(-87deg);
+    /*нулевая точка для этого метода - круг заполняется правильно, по часовой стрелке*/
+    opacity: 0.41;
+}
