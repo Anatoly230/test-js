@@ -1,0 +1,111 @@
+body {
+    background-color: azure;
+}
+
+.parent-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: flex-end; */
+    width: 90%;
+    max-width: 1200px;
+    /*ориентироваться на это значение*/
+    margin: 0 auto;
+    background-color: #ddd;
+    padding: 20px 10px;
+}
+
+.parent-block__heading {
+    width: 91.66666666666667%;
+    padding: 1.818181818181818%;
+    color: red;
+    background-color: yellowgreen;
+}
+
+.parent-block__text {
+    background-color: bisque;
+}
+
+.parent-block__list {
+    min-width: 500px;
+    max-width: 100%;
+    max-height: 500px;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background-color: burlywood;
+    color: white;
+    transition-delay: 50ms;
+    transition-duration: 2500ms;
+    overflow: auto;
+}
+
+.parent-block__list-item {
+    cursor: pointer;
+    background-color: red;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    padding: 5px 10px;
+}
+
+.btn {
+    z-index: 10;
+    position: relative;
+    display: flex;
+    align-content: space-between;
+    flex-wrap: wrap;
+    width: 20px;
+    height: 18px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    cursor: pointer;
+    background-color: rgba(255, 0, 0, 0);
+    border: none;
+    padding: 0;
+    margin-bottom: 15px;
+    color: white;
+    font-size: 0px;
+}
+
+.btn-rotate {
+    transform: rotate(-180deg);
+    transition-delay: 200ms;
+    transition-duration: 1000ms;
+}
+
+.btn-item {
+    flex-basis: 20px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    height: 2px;
+    background-color: white;
+    border-radius: 1px;
+    margin: 0;
+
+    transition-delay: 50ms;
+    transition-duration: 500ms;
+}
+
+.btn:hover {
+    opacity: 0.85;
+}
+
+.btn-x-tranform:first-of-type {
+    transform-origin: center;
+    transform: translateY(8px) rotate(-45deg);
+}
+
+.btn-x-tranform:nth-of-type(2) {
+    flex-basis: 0px;
+}
+
+.btn-x-tranform:last-of-type {
+    transform-origin: center;
+    transform: translateY(-8px) rotate(45deg);
+}
+
+.hide-btn-text {
+    display: none;
+}
