@@ -1,4 +1,6 @@
-
+mkdir dirName
+md dirName
+/*создание новой папки*/
 ls -lh  file_name
 /*показать размер файла*/
 
