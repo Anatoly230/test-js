@@ -1,0 +1,38 @@
+git init 
+/*создаю локальный репозиторий на компьютере*/
+
+git add --all 
+/*фиксирую все изменения в локальный репозиторий*/
+
+git commit -a -m 'first commit' 
+ /*добавляю измениния в локальный репозиторий*/
+
+git remote add origin https://github.com/user/my_project.git
+/*создаю зависимости с удалённым репозиторием, где https://github.com/user/ адрес моего github, а my_project.git будет название удалённого репозитория*/
+/*origin название удалённого подключения - можно выбрать любое*/
+
+git remote 
+/*проверка удалённого подключения, если всё ок, то выйдет название удалённого подключения*/
+
+git remote -v
+/*показывает что можно делать с удалённым репозиторием ниже пример*/
+/*
+remote_name     https://github.com/my_github/project_name.git (fetch)
+remote_name     https://github.com/my_github/project_name (push)
+*/
+
+git pull --rebase origin master
+/* эта команда запускается на случай если нужно подтянуть файлы с удалённого репозитория*/
+
+git push origin master
+/*отправлюя все изменения произошедшие на локальном репозитории*/
+
+git remote rename oldName newName 
+/*переименование  удалённого подключения - oldName старое назание,  newName новое название*/
+
+git remote rm origin 
+/*удаление удалённого подключения - в этом примере origin  это название удалённого подключения*/
+
+git remote set-url origin https://github.com/Anatoly230/newRepositoryName.git 
+/*переименование репозитория - после того как поменял название на github,
+также необходимо перепривязать url, так как url удалённого подключения изменился*/

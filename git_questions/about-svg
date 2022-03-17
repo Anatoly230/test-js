@@ -1,0 +1,66 @@
+подключение svg к css 
+
+.e{
+background-image:  url("data:image/svg+xml;utf8,<svg>....</svg>")
+}
+
+
+подключение svg к html
+<svg width="20">
+  <rect fill="#fc0" width="20" height="20"/>
+  <line stroke="black" x1="0" y1="0" x2="20" y2="20"/>
+</svg>
+
+
+
+
+атрибуты svg html
+<svg viewBox="0 0 300 200" width="" height="">  <!-- viewBox  - 0 координаты x, 0 координаты y. 300 ширина, 200 высота-->
+
+<rect x="" y="" width="" height="" fill="color" fill-opacity="value" stroke="color" stroke-width="" stroke-opacity="" />
+
+
+создания кругового статуса 
+
+вставка в  html
+
+<svg width="150" height="150">
+  <circle class="shape-stroke" r="60" cx="50%" cy="50%"></circle>
+</svg>
+
+стили
+.shape-stroke {
+  stroke: lightgreen; /*цвет обводки*/
+  stroke-width: 10; /*толщина обводки*/
+  stroke-dasharray: 288 72; /*1 процент кратный 36 (360 это целый круг) начение слева заполняющее, значение справа незаполеннеое место*/
+  stroke-linecap: round; /*кончики отсечённых линий закруглённые*/
+  transform-origin: center center 0;  /*изменение центра вращения*/
+  transform: rotate(-76deg); /*нулевая точка для этого метода - круг заполняется правильно, по часовой стрелке*/
+}
+
+ или так - всё зависит от рзамеров круга и его обводки
+
+        <svg width="60" height="60">
+            <circle class="shape-stroke" r="28" cx="50%" cy="50%">
+
+            </circle>
+        </svg>
+
+.shape-stroke {
+    fill: none;
+    stroke: blue;
+    /*цвет обводки*/
+    stroke-width: 4;
+    fill: orange;
+    /*толщина обводки*/
+    stroke-dasharray: 135 45;
+    // stroke-dasharray: 288 72;
+    /*1 процент кратный 36 (360 это целый круг) начение слева заполняющее, значение справа незаполеннеое место*/
+    stroke-linecap: round;
+    /*кончики отсечённых линий закруглённые*/
+    transform-origin: center center 0;
+    /*изменение центра вращения*/
+    transform: rotate(-87deg);
+    /*нулевая точка для этого метода - круг заполняется правильно, по часовой стрелке*/
+    opacity: 0.41;
+}
