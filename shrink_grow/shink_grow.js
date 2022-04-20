@@ -93,6 +93,7 @@ let fullfom = document.querySelector(".form");
 let fullSpace = fullfom.querySelector(".container");
 let changes = fullfom.querySelector(".changes");
 
+
 function collect(pseudoArr) {
     let arr = Array.from(pseudoArr);
     let nwArr = [];
@@ -102,18 +103,34 @@ function collect(pseudoArr) {
     return nwArr;
 }
 
+function selAction(actionNodes) {
+    for (item of actionNodes)
+        if (item.checked === true) {
+            return item.value;
+        }
+}
+
 function upload() {
     let elmArr = fullfom.querySelectorAll(".output");
     let elements = collect(fullfom.querySelectorAll(".element"));
     let changer = collect(fullfom.querySelectorAll(".change"));
     let fullSpace = fullfom.querySelector(".container").value;
+    let choiceAction = fullfom.querySelectorAll(".resize");
+    let resize;
 
-    let changeArr = getGrowsViewer(changer, elements, fullSpace);
+    switch (selAction(choiceAction)) {
+        case "grow":
+            resize = getGrowsViewer(changer, elements, fullSpace);
+            break
+        case "shrink":
+            resize = getFindShrink(changer, elements, fullSpace);
+            break
+    }
 
     let i = 0;
 
     while (elmArr.length > i) {
-        elmArr[i].textContent = changeArr[i]
+        elmArr[i].textContent = resize[i]
         i++;
     }
 }
@@ -127,7 +144,7 @@ changes.addEventListener('change', function (e) {
 // shrink
 
 function getNegativeSpace(cont, elmnts) {
-    return cont - allContainers(elmnts);
+    return Math.abs(cont - allContainers(elmnts));
 };
 
 function addToSumm(arr) {
@@ -149,18 +166,29 @@ function totalOfSrihkCoeff(elmnts, shrnks) {
     return elmnts.reduce(function (accum, item, index) {
         return accum += shrnks[index] * item
     }, 0);
-}
+};
 
 function getCompressionRatio(elmnts, shrnks) {
-    return (elmnts * shrnks) / totalOfSrihkCoeff(elmnts, shrnks);
+    let totalShrinkKoef = totalOfSrihkCoeff(elmnts, shrnks)
+    return elmnts.map(function (item, index) {
+        return (item * shrnks[index]) / totalShrinkKoef;
+    }, 0);
+};
+
+
+// сборщик результатов shrink - выдаёт массив с итоговыми размерами элементов
+function getFindShrink(shrnks, elmnts, cont) {
+    let negSpace = getNegativeSpace(cont, elmnts),
+        compressRatio = getCompressionRatio(elmnts, shrnks)
+    return elmnts.map(function (item, index) {
+        return elmnts[index] - (compressRatio[index] * negSpace);
+    });
 }
-
-function getFindShrink(cont, elmnts, shrnks) {
-    for (let i = 0; i < elmnts.length; i++) {
-        console.log(elmnts[i] - (getCompressionRatio(elmnts[i], shrnks[i]) * getNegativeSpace(cont, elmnts)));
-    }
-
-}
-
+// сборщик результатов shrink - выдаёт массив с итоговыми размерами элементов
 
 // shrink
+
+
+// добавление и удаление эдлементов в блок
+
+// добавление и удаление эдлементов в блок
