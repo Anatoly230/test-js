@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shrink grow</title>
+</head>
+
+
+
+<body>
+
+    <h1>Тестирую shrink grow</h1>
+    <form action="#" class="form">
+        <label for="container">Контейнер</label>
+        <input class="container" type="number" id="container" value="3">
+        <fieldset class="choice-action">
+            <legend>Выбери действие</legend>
+            <label for="big">Grow</label>
+            <input class="resize" type="radio" id="big" name="resize" value="grow" checked>
+            <label for="small">Shrink</label>
+            <input class="resize" type="radio" id="small" name="resize" value="shrink">
+        </fieldset>
+        <fieldset class="elements">
+            <legend>Элементы</legend>
+            <label for="element">Элемент 1</label>
+            <input class="element" type="number" id="element">
+            <label for="element">Элемент 2</label>
+            <input class="element" type="number" id="element">
+            <label for="element">Элемент 3</label>
+            <input class="element" type="number" id="element">
+            <label for="element">Элемент 4</label>
+            <input class="element" type="number" id="element">
+        </fieldset>
+
+        <fieldset class="changes">
+            <legend class="change-title">Изменение</legend>
+            <label for="change">Элемент 1</label>
+            <input class="change" type="number" id="change" step="0.1">
+            <label for="change">Элемент 2</label>
+            <input class="change" type="number" id="change" step="0.1">
+            <label for="change">Элемент 3</label>
+            <input class="change" type="number" id="change" step="0.1">
+            <label for="change">Элемент 4</label>
+            <input class="change" type="number" id="change" step="0.1">
+        </fieldset>
+
+        <p class="result">
+            Элемент 1: <span class="output"></span> <br>
+            Элемент 2: <span class="output"></span> <br>
+            Элемент 3: <span class="output"></span> <br>
+            Элемент 4: <span class="output"></span> <br>
+        </p>
+
+    </form>
+
+    <script src="../shrink_grow/shink_grow.js"></script>
+</body>
+
+</html>

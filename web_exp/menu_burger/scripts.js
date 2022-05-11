@@ -15,15 +15,15 @@ let addNewItem = (tagName, className, text, parentBlock) => {
 
 }
 
-// btn.addEventListener('click', (evt) => {
+btn.addEventListener('click', (evt) => {
 
-//     btnBrgr.forEach(element => {
-//         element.classList.toggle('btn-x-tranform');
-//     });
-//     btn.classList.toggle(`btn-rotate`)
-//     addNewItem(`li`, `parent-block__list-item`, `Я ${blockListItems.length + 1}-й элемент списка`, blockList);/*добавляю новый элемент */
+    btnBrgr.forEach(element => {
+        element.classList.toggle('btn-x-tranform');
+    });
+    btn.classList.toggle(`btn-rotate`)
+    addNewItem(`li`, `parent-block__list-item`, `Я ${blockListItems.length + 1}-й элемент списка`, blockList);/*добавляю новый элемент */
 
-// })
+})
 
 btn.addEventListener('click', (evt) => {
     btnBrgr.forEach(element => {

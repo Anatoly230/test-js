@@ -9,6 +9,9 @@ https://githowto.com/ru
 команды
 https://github.com/ivan1kazantsev/dev-helper/tree/master/cmdline/git
 
+краткая информация о командах (полезно)
+https://pingvinus.ru/git
+
 
 git clone git@github.com:myLoginName/myProject.git myFolder
  

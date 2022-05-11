@@ -31,3 +31,12 @@ blockList.addEventListener(`click`, (evt) => {
     }
 })
 
+
+testFunc.someNum = 23;
+
+function testFunc() { };
+
+
+console.dir(testFunc);
+
+reprot(`Какое-то значение`)
