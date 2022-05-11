@@ -22,6 +22,9 @@ git merge --allow-unrelated-histories mergeableBranch
 git merge --allow-unrelated-histories branch_1 brach_2
  /*Слияние веток branch_1 и brach_2 у которых разная история  */
 
+git push remote_connection --delete branchName        (remote_connection как правило это origin, но его можно по разному назвать)
+/*удаелние ветки из удалённого репозитория*/
+
  git push origin oldBranchName:newBranchName 
  /*смена названия ветки на удаллённом репозитории - в этом примере  oldBranchName это старое название ветка, а newBranchName новое название ветки на удадённом репозитории*/
 
