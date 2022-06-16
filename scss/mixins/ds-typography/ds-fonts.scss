@@ -1,0 +1,55 @@
+// Inter: 700, 600, 400
+@font-face {
+    font-family: Inter;
+    src:
+        url("~/assets/fonts/inter400.woff2") format("woff2"),
+        url("~/assets/fonts/inter400.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Inter;
+    src:
+        url("~/assets/fonts/inter600.woff2") format("woff2"),
+        url("~/assets/fonts/inter600.woff") format("woff");
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Inter;
+    src:
+        url("~/assets/fonts/inter700.woff2") format("woff2"),
+        url("~/assets/fonts/inter700.woff") format("woff");
+    font-weight: 700;
+    font-style: normal;
+}
+
+// Gotham Pro: 900, 700, 400
+@font-face {
+    font-family: "Gotham Pro";
+    src:
+        url("~/assets/fonts/gothampro400.woff2") format("woff2"),
+        url("~/assets/fonts/gothampro400.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Gotham Pro";
+    src:
+        url("~/assets/fonts/gothampro700.woff2") format("woff2"),
+        url("~/assets/fonts/gothampro700.woff") format("woff");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Gotham Pro";
+    src:
+        url("~/assets/fonts/gothampro900.woff2") format("woff2"),
+        url("~/assets/fonts/gothampro900.woff") format("woff");
+    font-weight: 900;
+    font-style: normal;
+}

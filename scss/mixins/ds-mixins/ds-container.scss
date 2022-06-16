@@ -1,0 +1,10 @@
+$desktop: 1440px;
+
+@mixin container {
+    @include laptop {
+        width: $desktop;
+        margin: 0 auto;
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+}

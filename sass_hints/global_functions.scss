@@ -1,0 +1,16 @@
+// @import "sass:math"
+
+@function prc($target, $parent-cont) {
+    $result: math.div($target, $parent-cont) * 100%;
+    @return $result;
+}
+
+@function rem($target, $root-f-s: 16) {
+    $result: math.div($target, $root-f-s) + rem;
+    @return $result;
+}
+
+@function em($target, $root-f-s: 16) {
+    $result: math.div($target, $root-f-s) + em;
+    @return $result;
+}
