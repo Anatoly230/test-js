@@ -1,0 +1,243 @@
+- Управление отображением изображений 
+- Оптимизация контентных изображений html (растровая графика)
+- Оптимизация контентных изображений html (веторная графика)
+- Оптимизация  фоновых изображений css
+- Поддержка тега <picture>  в браузерах, которые этого делать не могут
+- Фавиконки и работа с ними
+
+- Оптимизация растрвой графики
+- Оптимизация векторной графики
+
+
+
+Управление отображением изображений 
+очень полезная статья
+https://up.htmlacademy.ru/adaptive/25/module/6/item/5
+
+
+Оптимизация контентных изображений html (растровая графика)
+    
+    Сначала обозначаю основное изображение тегом  <img> со всеми необходимыми атрибутами, также с атрибутом  srcset="", для "ретинного" изображения. Пример:
+
+        <img class="contnent__pic" src="img/pic.jpeg" srcset="img/pic@2.jpeg 2x" width="500" height="300" alt="обогревательный элемент" >
+
+    Далее обрамляю его тегом <picture> и расставляем внутри него теги, сверху вниз, теги <source> в порядке убывания атрибута  madiia="", 
+    на самом верху находится максимальная ширина устройства, например ширина  desktop 1200px. Для ссылки на изображения для разных разрешений используется атрибут 
+     srcset="" . И в самом низу должен находиться тег  img, с основным исображением, которое точно откроется, если каким-то браузером тег  <picture>  проигнорируется 
+     (а такое бывает например у IE старой версии, как этого избежть, опишется ниже) 
+     Пример использовнаия вышеописанной концепции:
+
+<picture>
+<!-- для desktop-->
+<source media="(min-width:1200px)" srcset="img/desktop_pic.jpeg 1x, img/desktop_pic@2.jpeg 2x">
+
+<!-- для пленшета-->
+<source media="(min-width:768px)" srcset="img/tablet_pic.jpeg 1x, img/tablet_pic@2.jpeg 2x">
+
+<!-- очень важно обратить особое внимание для префиксов и постфиксов названий изображений-->
+
+<!-- desktop_pic.jpeg - desktop обычное разрешение-->
+<!-- desktop_pic@2.jpeg - desktop "ретина"-->
+
+<!-- tablet_pic.jpeg - планшет обычное разрешение-->
+<!-- tablet_pic@2.jpeg - планшет "ретина"-->
+
+<!-- pic.jpeg - мобильная версия обычное разрешение-->
+<!-- pic@2.jpeg - мобильная версия "ретина"-->
+
+<!-- тег img  ставится в самом конце списка, это же ищзображение будет использоваться в мобильной версии-->
+        <img class="contnent__pic" src="img/pic.jpeg" srcset="img/pic@2.jpeg 2x" width="500" height="300" alt="обогревательный элемент" >
+</picture>
+      
+!!! необходимо помнить, что тег  <picture>  исячезающий, не все браузеры его видят, поэтому навешивать на него классы нельзя !!!
+
+
+читсый код без комментариев:
+
+<picture>
+    <source media="(min-width:1200px)" srcset="img/desktop_pic.jpeg 1x, img/desktop_pic@2.jpeg 2x">
+    <source media="(min-width:768px)" srcset="img/tablet_pic.jpeg 1x, img/tablet_pic@2.jpeg 2x">
+    <img class="contnent__pic" src="img/pic.jpeg" srcset="img/pic@2.jpeg 2x" width="500" height="300" alt="обогревательный элемент" >
+</picture>
+
+
+Оптимизация контентных изображений html (веторная графика)
+
+С векторной графикой дела попроще, с ней нет необходимости менять изображения под разные разрешения, поэтому делается всё тоже самое что и с растровой 
+но только без дополнение 1х или 2х изображений, тоесть задаются параметры минмальный ширины экрана, на которой будет распологаться другая версия векторного изображения,
+если в этом появилась необходимость с точки зрения дизайна, тоесть, если дизайнер обозначил разные версии изображения по разнае устройства. Пример:
+
+<picture>   
+    <!--desktop версия -->
+    <source media="(min-width:1200px)" srcset=src="img/desktop_logo.svg">
+    
+    <!--планшет версия -->
+    <source media="(min-width:768px)" srcset="img/tablet-logo.svg">
+
+<!--также необходимо на префиксы названий-->
+
+<!-- desktop_logo.svg - desktop обычное разрешение-->
+<!-- tablet_logo.svg - планшет обычное разрешение-->
+<!-- _logo.svg - мобильная версия обычное разрешение-->
+
+    <!--Основная версия логотипа (мобильная)-->
+    <img class="content__logo" src="img/logo.svg" width="150" height="50" alt="Логотип компании" >
+</picture>
+
+чистый код:
+
+<picture>   
+    <source media="(min-width:1200px)" srcset=src="img/desktop_logo.svg">
+    <source media="(min-width:768px)" srcset="img/tablet-logo.svg">
+    <img class="content__logo" src="img/logo.svg" width="150" height="50" alt="Логотип компании" >
+</picture>
+
+и ниже все возможные варианты медиавыражений применяемых с тегом  <picture>
+
+<picture>
+    <source srcset="smaller_landscape.jpg, smaller_landscape@2.jpg 2x" media="(max-width: 40em) and (orientation: landscape)">
+    <source srcset="smaller_portrait.jpg, smaller_portrait@2.jpg 2x" media="(max-width: 40em) and (orientation: portrait)">
+    <source srcset="default_landscape.jpg, default_landscape@2.jpg 2x" media="(min-width: 40em) and (orientation: landscape)">
+    <source srcset="default_portrait.jpg, default_portrait@2.jpeg 2x" media="(min-width: 40em) and (orientation: portrait)">
+    <img srcset="default_landscape.jpg, default_landscape@2.jpg 2x" alt="My default image">
+</picture>
+
+
+
+
+Оптимизация  фоновых изображений css
+
+Для начала необходимо отметить, что фоновое изображение это  css  и свойство  background, именно с ними и буду работать.
+
+есть блок и заголовок внутри
+
+<section class="page__promo">
+    <h2 class="page__promo-title">Добро пожаловать</h2>
+</section>
+
+Прописываю стандартные стили для фону для разных устройств, предположим, что для разных устройств меняется изображение. (препроцессор  scss)
+
+.page__promo {
+    background-image: url("img/bcr-image");
+    background-position: 50%;
+    background-size: cover;
+    background-repeat: none;
+
+    @media(min-width: $tablet-width){
+        background-image: url("img/tablet_bcr-image");
+
+    }
+
+    @media(min-width: $desktop-width){
+        background-image: url("img/desktop_bcr-image");
+    }    
+}
+
+Теперь чтобы добавить поведения при 2х разрешении экрана, необходимо в каждую из версий устройств добавить медиавыражение  @media(min-resolution: 2dppx){}
+и добавить в свойсвто  background изображение с соответствующим разрешением (для удобства, в названии стоит проставлять соответсвующие постфиксы,
+ -  device_name@resolution.extention  пример: desktop_nature@2.jpeg )
+
+Пример:
+
+.page__promo {
+    background-image: url("img/bcr-image.jpeg");
+    background-position: 50%;
+    background-size: cover;
+    background-repeat: none;
+
+    @media(min-width: $tablet-width){
+        background-image: url("img/tablet_bcr-image.jpeg");
+
+        @media(min-resolution: 2dppx){
+         background-image: url("img/tablet_bcr-image@2.jpeg");
+
+    }
+        }
+
+    @media(min-width: $desktop-width){
+        background-image: url("img/desktop_bcr-image.jpeg");
+    
+         @media(min-resolution: 2dppx){
+             background-image: url("img/desktop_bcr-image@2.jpeg");
+
+        }
+
+    }    
+}
+
+
+
+Поддержка тега <picture>  в браузерах, которые этого делать не могут
+
+Скачивание работающего файла и вся необходимая информация по подключению и использованию данного плагина имеется по адресу:
+http://scottjehl.github.io/picturefill/
+
+
+
+
+
+ Фавиконки и работа с ними
+
+Стандартное подключение фавиконки выглядит следующим образом
+в теге  head прописывается тег  link
+
+стандартные размеры фавиконки 32х32px
+
+<head>
+  <link rel="icon" href="favicon.ico">  
+  <!-- здесь вставляется основная иконка в формате *.ico, если браузер не может открывать современные типы иконок, так сказать иконка безопасности - размер 32х32 -->
+
+  <link rel="icon" href="img/icons/favicons/favicon.svg" type="image/svg+xml">
+  <!-- векторная, масштабируемая иконка-->
+
+  <link rel="apple-touch-icon" href="img/icons/favicons/apple.png">
+   <!-- иконка для устройств  apple, размер 180х180-->
+ 
+  <link rel="manifest" href="manifest.webmanifest">
+    <!-- webmanifest  с дополнительными размерами иконок-->
+</head>
+
+собственно сам  webmanifest:
+
+{
+  "icons": [
+    {
+      "src": "img/icons/favicons/192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "img/icons/favicons/512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}
+
+в каждом объекте этого массива указаны три параметра - путь, тип и размер изображения
+
+
+
+подробнее о файвиконках
+
+https://habr.com/ru/post/522844/
+
+И
+https://up.htmlacademy.ru/adaptive/25/module/6/item/4
+
+
+тест на наличие фавиконок для всех возможных палтформ 
+и всякие различные генерации кодов для создания фавиконок
+https://realfavicongenerator.net/
+
+
+
+
+ Оптимизация растрвой графики
+
+на ресурсе https://squoosh можно легко опимищзировать растровые изображения и выбрать любой удобный формат для сохранения
+
+
+ Оптимизация векторной графики
+
+ на ресурсе https://jakearchibald.github.io  можно легко оптимизировать векторную графику, и мохранить оптимизированный вариант в более маленьком весе файла
